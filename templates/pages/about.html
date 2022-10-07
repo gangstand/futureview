@@ -1,0 +1,87 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}О нас{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+{% endblock %}
+{% block content %}
+    <div id="particles-js"></div>
+    <section class="sec_info">
+        <div class="intro" id="intro"></div>
+        <div class="about_banner"></div>
+        <div class="container sec_info_text">
+            <div class="text_about_left">
+                <h1>Кто мы?</h1>
+                <p>Команда Взгляд в будущее. Мы создаем IT-продукты, которые эффективны сегодня и могут развиваться в
+                    будущем. Ваши правнуки не будут считать наши идеи странными!</p>
+            </div>
+        </div>
+    </section>
+    <section class="sostav">
+        <div class="structure">
+            <h1 class="fw-bold">Состав команды</h1>
+            {% for team in team %}
+                <div class="card">
+                    <img src="{{ team.team_image.url }}" alt="..." class="round" height="60%" width="40%">
+                    <div class="card_name">
+                        <h1><strong>{{ team.team_title }}</strong></h1>
+                    </div>
+                    <div class="card_spec">
+                        <p class="title">{{ team.team_description }}</p>
+                    </div>
+                    <a class="icon" href="{{ team.team_url_github }}"><i class="fa fa-github"></i></a>
+                    <a class="icon" href="{{ team.team_url_telegram }}"><i class="fa fa-telegram"></i></a>
+                    <a class="icon" href="{{ team.team_url_vk }}"><i class="fa fa-vk"></i></a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="awards">
+        <h1 class="aw_text"><strong>Наши награды</strong></h1>
+        <div class="container container--slider">
+            <div class="slider">
+                <button id="back" class="move-btn">
+                    <img src="{% static 'img/back.png' %}" alt="НАЗАД">
+                </button>
+
+                <div class="cards cards-slider" id="slider">
+                    <div class="cards-line" id="line" style="left: 0px">
+                        {% for awards in awards %}
+                            <div id="slide" class="awards_card">
+                                <a href="{{ awards.url }}">
+                                    <img src="{{ awards.image.url }}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5><strong>{{ awards.title }}</strong></h5>
+                                        <p class="card-text">{{ awards.description }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <button id="next" class="move-btn">
+                    <img src="{% static 'img/next.png' %}" alt="ВПЕРЁД">
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/slider.js' %}"></script>
+{% endblock content %}
+{% block javascript %}
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/particles.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/three.min.js' %}"></script>
+    <script src="{% static 'js/vanta.globe.min.js' %}"></script>
+    <script src="{% static 'js/about.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock javascript %}

@@ -1,0 +1,310 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}Future View{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="osnova">
+        <div class="circle_verybig"></div>
+        <div class="circle_big"></div>
+        <div class="circle_little"></div>
+        <div class="circle_verylittle"></div>
+        <div class="circle_averagelittle"></div>
+        <div class="circle"></div>
+        <div class="container application">
+            <div class="osnova__content">
+                <div class="text_osnova_left">
+                    <b><h1>Набор в команду</h1></b>
+                    <b><h3>Ключ к успеху – это команда!</h3></b>
+                    <p>Твой путь в IT - сообщество начинается здесь!<br>Если ты хочешь работать в команде, прокачать
+                        себя как IT-специалист, участвовать хакатонах, выполнять проекты на заказ, стань частью нашей
+                        команды!
+                    </p>
+                    <svg class="liquid-button liquid-button-center-tel"
+                         data-text="Подать заявку"
+                         data-force-factor="0.1"
+                         data-layer-1-viscosity="0.5"
+                         data-layer-2-viscosity="0.4"
+                         data-layer-1-mouse-force="400"
+                         data-layer-2-mouse-force="500"
+                         data-layer-1-force-limit="1"
+                         data-layer-2-force-limit="2"
+                         data-color1="#20D8F9"
+                         data-color2="#20D8F9"
+                         data-color3="#20D8F9"
+                         data-target="#myModal"
+                         data-toggle="modal"
+                         data-target="#myModal">
+                    </svg>
+                    <span class="form_error">{{ error }}</span>
+                </div>
+                <div class="banner"></div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <form class="myForm" method="POST">{% csrf_token %}
+                        <div class="modal-header">
+                            <h4 class="modal-title">Подать заявку</h4>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row g-3">
+                                <div class="col">
+                                    {{ form.name }}
+                                    </fieldset>
+                                </div>
+                                <div class="col">
+                                    {{ form.full_name }}
+                                </div>
+                                <div class="col">
+                                    {{ form.course }}
+                                </div>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                {{ form.description }}
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    {{ form.tel }}
+                                </div>
+                                <div class="col">
+                                    {{ form.url_vk }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-12">
+                                    {{ form.gmail }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="politika">
+                                {{ checkbox }}
+                                <p class="politika_pdf"><a
+                                        href="{% static 'Политика в отношении обработки персональных данных.pdf' %}"
+                                        title="Политика в отношении обработки персональных данных" target="_blank">Политика
+                                    обработки персональных данных</a></p></label>
+                            </div>
+                            <button name="butSub" class="button-none" id="submit" type="submit">
+                                <svg class="liquid-button liquid-button-center-tel-modal"
+                                     data-text="Подать заявку"
+                                     data-force-factor="0.1"
+                                     data-layer-1-viscosity="0.5"
+                                     data-layer-2-viscosity="0.4"
+                                     data-layer-1-mouse-force="400"
+                                     data-layer-2-mouse-force="500"
+                                     data-layer-1-force-limit="1"
+                                     data-layer-2-force-limit="2"
+                                     data-color1="#20D8F9"
+                                     data-color2="#20D8F9"
+                                     data-color3="#20D8F9">
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="vector">
+        <div class="advantages">
+            <h1>Преимущества команды Future View</h1>
+        </div>
+        <div class="my-container">
+            <img class="astro-img" src='{% static 'img/astronut.svg' %}'>
+            <div class="advantage_grid">
+                <div class="item-0">
+                    <h4>Эффективный формат работы </h4>
+                    <p>Команды разработчиков формируются в зависимости от проекта</p>
+                </div>
+                <div class="item-1">
+                    <h4>Комфортный режим взаимодействия</h4>
+                    <p>Коммуникация в команде осуществляются с помощью передовых технологий</p>
+                </div>
+                <div class="item-2">
+                    <h4>Креативная работа</h4>
+                    <p>Ускоряем процесс работы за счет своевременного масштабирования</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="team">
+        <div class="team_circle_verybig"></div>
+        <div class="team_circle_big"></div>
+        <div class="team_averagelittle"></div>
+        <div class="container">
+            <div class="team-text">
+                <h1>Состав команды Future View</h1>
+            </div>
+            <div class="team_grid">
+                <div class="team-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team.svg' %}" alt="">
+                    </div>
+                    <h4>Программисты</h4>
+                    <p>Необходимо программировать бизнес-логику веб-приложений с использованием одного из популярных
+                        фреймворков. Понимание разновидностей и принципов работы серверного API</p>
+                </div>
+                <div class="team-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team2.svg' %}" alt="">
+                    </div>
+                    <h4>Тестировщики</h4>
+                    <p>Моделирует различные ситуации, которые могут возникнуть в процессе использования предмета
+                        тестирования, чтобы разработчики смогли исправить обнаруженные ошибки</p>
+                </div>
+                <div class="team-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team3.svg' %}" alt="">
+                    </div>
+                    <h4>Тимлид</h4>
+                    <p>Решает технические и управленческие задачи. Предстоит анализировать, оценивать и запускать
+                        проекты. Организовывать работу в своей команде и отвечать за качество результата</p>
+                </div>
+            </div>
+            <svg class="liquid-button liquid-button-center"
+                 data-text="Подать заявку"
+                 data-force-factor="0.1"
+                 data-layer-1-viscosity="0.5"
+                 data-layer-2-viscosity="0.4"
+                 data-layer-1-mouse-force="400"
+                 data-layer-2-mouse-force="500"
+                 data-layer-1-force-limit="1"
+                 data-layer-2-force-limit="2"
+                 data-color1="#20D8F9"
+                 data-color2="#20D8F9"
+                 data-color3="#20D8F9"
+                 data-target="#myModal"
+                 data-toggle="modal"
+                 data-target="#myModal">
+            </svg>
+        </div>
+    </section>
+    <section class="approaches">
+        <div class="container">
+            <div class="text-approaches">
+                <h1>Подходы команды Future View</h1>
+            </div>
+            <div class="approaches_grid">
+                <div class="approaches-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team4.svg' %}" alt="">
+                    </div>
+                    <h4>Agile методология</h4>
+                    <p>Применение гибких методологий разработки. В соответствии с требования технического задания</p>
+                </div>
+                <div class="approaches-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team5.svg' %}" alt="">
+                    </div>
+                    <h4>Cвои решения</h4>
+                    <p>Применение собственной библиотеки решений, позволяющей сократить трудозатраты на реализацию
+                        стандартных компонентов</p>
+                </div>
+                <div class="approaches-item">
+                    <div class="team-svg">
+                        <img src="{% static 'img/team6.svg' %}" alt="">
+                    </div>
+                    <h4>UX/UI дизайн</h4>
+                    <p>Применение комплексного подхода для создания простого и комфортного взаимодействия пользователя с
+                        интерфейсом</p>
+                </div>
+            </div>
+        </div>
+        <div id="circles"></div>
+    </section>
+    <section class="technology_map">
+        <canvas id="particle-canvas"></canvas>
+        <div class="container">
+            <div class="text-technology_map">
+                <h1>Карта технологий команды Future View</h1>
+            </div>
+            <div class="technology_map_grid">
+                <div class="technology_map-item technology_map-item-0">
+                    <div class="map-content">
+                        <h4>Frontend</h4>
+                        <p>React, Next.js, Vue, Angular, TypeScript</p>
+                    </div>
+                </div>
+                <div class="technology_map-item technology_map-item-1">
+                    <div class="map-content">
+                        <h4>Backend</h4>
+                        <p>Python (Django, DRF, FastApi, Starlette), Node.js (Express, Nest.js)</p>
+                    </div>
+                </div>
+                <div class="technology_map-item technology_map-item-2">
+                    <div class="map-content">
+                        <h4>Mobile</h4>
+                        <p>Kotlin, Java, ReactNative</p>
+                    </div>
+                </div>
+                <div class="technology_map-item technology_map-item-3">
+                    <div class="map-content">
+                        <h4>DB</h4>
+                        <p>PostgreSQL, Redis, MongoDB, SQLite, Firebase</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <svg class="liquid-button liquid-button-center"
+             data-text="Подать заявку"
+             data-force-factor="0.1"
+             data-layer-1-viscosity="0.5"
+             data-layer-2-viscosity="0.4"
+             data-layer-1-mouse-force="400"
+             data-layer-2-mouse-force="500"
+             data-layer-1-force-limit="1"
+             data-layer-2-force-limit="2"
+             data-color1="#20D8F9"
+             data-color2="#20D8F9"
+             data-color3="#20D8F9"
+             data-target="#myModal"
+             data-toggle="modal"
+             data-target="#myModal">
+        </svg>
+    </section>
+    <div id="cookie_notification">
+        <p>Мы используем файлы cookies и связанные с ними технологии отслеживания, в том числе веб-маяки, пиксели
+            отслеживания и файлы журналов (совместно именуемые «cookie») на этом веб-сайте, чтобы отличать вас от других
+            пользователей, оценивать и улучшать функциональность веб-сайта и наших услуг, а также мы работаем над тем,
+            чтобы у вас оставались приятные впечатления от применения нашим сайтом.</p>
+        <button class="button cookie_accept">Принять</button>
+    </div>
+{% endblock content %}
+{% block javascript %}
+    <script src="{% static 'js/sphere.js' %}"></script>
+    <script src="{% static 'js/p5.min.js' %}"></script>
+    <script src="{% static 'js/brounovskoe.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/button.js' %}"></script>
+    <script>
+        function checkCookies() {
+            let cookieDate = localStorage.getItem('cookieDate');
+            let cookieNotification = document.getElementById('cookie_notification');
+            let cookieBtn = cookieNotification.querySelector('.cookie_accept');
+
+            if (!cookieDate || (+cookieDate + 31536000000) < Date.now()) {
+                cookieNotification.classList.add('show');
+            }
+
+            cookieBtn.addEventListener('click', function () {
+                localStorage.setItem('cookieDate', Date.now());
+                cookieNotification.classList.remove('show');
+            })
+        }
+
+        checkCookies();
+    </script>
+{% endblock javascript %}

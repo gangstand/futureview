@@ -1,0 +1,11 @@
+Django
+django-allauth
+django-crispy-forms
+whitenoise
+Pillow
+psycopg2-binary==2.8.6
+######################
+gunicorn
+django-environ
+
+
