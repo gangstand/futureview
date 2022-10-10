@@ -1,5 +1,6 @@
 from pathlib import Path
 import environ
+
 env = environ.Env()
 environ.Env.read_env('.env')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,7 +11,7 @@ SECRET_KEY = env("SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "futureview.su", "www.futureview.su"]
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -95,7 +96,6 @@ DATABASES = {
     }
 }
 
-
 # PASSWORDS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
@@ -127,7 +127,6 @@ USE_I18N = True
 USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
-
 
 # STATIC
 # ------------------------------------------------------------------------------

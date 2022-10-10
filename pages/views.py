@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 
 from pages.forms import ArticlesForm, BooleanFieldFrom
-from pages.models import Awards, Team, Project
+from pages.models import Team, Awards
 
 
 def index(request):
@@ -27,17 +27,17 @@ def index(request):
 
 
 class ProjectsPageView(TemplateView):
-    model = Project
     template_name = "pages/projects.html"
 
 
 class AboutPageView(TemplateView):
-    model = Awards
+    model = Team
     template_name = "pages/about.html"
 
     def get_context_data(self, **kwargs):
         context = super(AboutPageView, self).get_context_data(**kwargs)
-        context['Team'] = Team.objects.all()
+        context['team'] = Team.objects.all()
+        context['awards'] = Awards.objects.all()
         return context
 
 
